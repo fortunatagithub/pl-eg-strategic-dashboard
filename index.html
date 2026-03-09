@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>E&G Strategic Dashboard · PL R&D</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Top Navigation -->
+  <header class="topnav" id="topnav">
+    <div class="topnav-inner">
+      <a class="topnav-brand" href="#overview">
+        <span class="brand-hexagon">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+            <path d="M11 2L19.66 7V17L11 22L2.34 17V7L11 2Z" stroke="#2563EB" stroke-width="1.5" fill="rgba(37,99,235,0.08)"/>
+          </svg>
+        </span>
+        <span class="brand-text">PL R&amp;D <span class="brand-sep">·</span> E&amp;G</span>
+      </a>
+
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="topnav-links" id="topnav-links">
+        <a class="nav-item nav-item-guide" href="#guide"        data-section="guide">Start Here</a>
+        <a class="nav-item" href="#overview"      data-section="overview">Overview</a>
+        <a class="nav-item" href="#roadmap"       data-section="roadmap">Roadmap</a>
+        <a class="nav-item" href="#success"       data-section="success">Success</a>
+        <a class="nav-item" href="#howwework"     data-section="howwework">How We Work</a>
+        <a class="nav-item" href="#diagnosis"     data-section="diagnosis">Field Diagnosis</a>
+        <a class="nav-item" href="#models"        data-section="models">Reference Models</a>
+        <a class="nav-item" href="#bibliography"  data-section="bibliography">Sources</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Mobile nav overlay -->
+  <div class="nav-overlay" id="nav-overlay"></div>
+
+  <!-- Main content -->
+  <main class="main-content">
+    <div id="content-inner"></div>
+  </main>
+
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/views.js"></script>
+  <script src="js/app.js"></script>
+
+</body>
+</html>
