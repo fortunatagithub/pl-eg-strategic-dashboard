@@ -84,16 +84,18 @@ var Views = (function () {
     // Navigate the dashboard
     html += '<div class="guide-section guide-section-alt">';
     html += '<div class="section-eyebrow">Navigation Guide</div>';
-    html += '<h2 class="section-title">5 Sections — When to Use Each</h2>';
-    html += '<p class="section-desc">Each section answers a different question. Use the top nav to move between them. The dashboard opens here — everything else is one click away.</p>';
+    html += '<h2 class="section-title">7 Sections — When to Use Each</h2>';
+    html += '<p class="section-desc">The tab order follows a logical arc: what we\'re building → why it\'s hard → how we respond → what winning looks like → what we can learn from. Use the top nav to move between them.</p>';
     html += '<div class="grid-2">';
 
     var sections = [
       { emoji: '🌐', href: '#overview', title: 'Overview', question: 'When to open it: "What is FA2 building, and what is PL\'s specific role?"', desc: 'The north star page. 4 opportunity spaces, the core reframe of what this is really about, and the 5 levers through which PL does what only PL can do. Start any onboarding conversation here.' },
-      { emoji: '🗓️', href: '#roadmap', title: 'Roadmap', question: 'When to open it: "What are we doing in Year 1? What does Year 5 look like?"', desc: '6 ARIA-style missions, each with a named problem and a target deployment phase. 3-phase timeline (Year 1 Foundation → Year 3 Traction → Year 5 Irreversible Shifts) with milestone lists and institutional lens callouts showing how comparable organizations built at each phase.' },
-      { emoji: '✅', href: '#success', title: 'Success', question: 'When to open it: "How do we know if this is working?"', desc: '4 inflection hypotheses — the game-changing moments we\'re aiming for. Expandable future state blocks across 6 categories. Evidence engine benchmarks for quarterly traction reports. Use this section in any conversation about measurement or direction.' },
-      { emoji: '⚙️', href: '#howwework', title: 'How We Work', question: 'When to open it: "What does FA2 actually do day-to-day?"', desc: '6 activity streams: Fellowship, Convenings, Grants & Prizes, Advisory, Co-funded Initiatives, and the September UN Event. Each has a status label, a "what good looks like" definition, and an institutional lens callout. Also includes the 4-stage capital stack breakdown.' },
-      { emoji: '🔬', href: '#diagnosis', title: 'Field Diagnosis', question: 'When to open it: "Why is this hard? What are we actually fighting?"', desc: '7 systemic constraints mapped by type and status (active / being addressed / mitigated). Each has a suppression mechanism, a resolution path, and an institutional analogue showing how comparable actors faced the same constraint. Useful when things are moving slower than expected.' }
+      { emoji: '🗓️', href: '#roadmap', title: 'Roadmap', question: 'When to open it: "What are we doing in Year 1? What does Year 5 look like?"', desc: '6 ARIA-style missions with target deployment phases. 3-phase timeline (Foundation → Traction → Irreversible Shifts) with milestone lists and a full Gantt chart.' },
+      { emoji: '🔬', href: '#diagnosis', title: 'Field Diagnosis', question: 'When to open it: "Why is this hard? What are we actually fighting?"', desc: '7 systemic constraints mapped by type and status. Each shows what suppresses the field, what resolves it, which FA2 missions address it directly, and how comparable institutions navigated the same obstacle.' },
+      { emoji: '⚙️', href: '#howwework', title: 'How We Work', question: 'When to open it: "What does FA2 actually do, and how does it connect to strategy?"', desc: '6 activity streams with status labels and explicit links to the Evidence Engine metrics each one feeds. Includes the activity → inflection map and the 4-stage capital stack.' },
+      { emoji: '✅', href: '#success', title: 'Success', question: 'When to open it: "How do we know if this is working?"', desc: '3-level measurement architecture: activity benchmarks (How We Work) → quarterly Evidence Engine metrics → strategic inflection signals. Also includes the 5–10 year future state conditions across 6 categories.' },
+      { emoji: '📚', href: '#models', title: 'Reference Models', question: 'When to open it: "What can we learn from analogous institutions and real deployments?"', desc: '8 reference institutions and 10 real-world DPI deployments — each with an explicit FA2 application. Includes an executive synthesis mapping each institution to FA2\'s 4 opportunity spaces, and 5 strategic playbook chapters.' },
+      { emoji: '📖', href: '#bibliography', title: 'Sources', question: 'When to open it: "Where does this content come from?"', desc: '100+ sources organized by domain — official government documents, academic research, institutional reports. Every statistic and institutional reference in the dashboard is sourced here.' }
     ];
     sections.forEach(function(s) {
       html += '<a class="guide-nav-card" href="' + s.href + '">';
@@ -132,11 +134,11 @@ var Views = (function () {
     html += '<h2 class="section-title">Suggested Ways to Use This</h2>';
 
     var howSteps = [
-      { num: '1', title: 'First read — start with Overview, then Diagnosis', desc: 'If you\'re new to FA2: read the Overview to understand what we\'re building and PL\'s role. Then go to Field Diagnosis to understand what makes this hard. These two sections together give you the full strategic picture in under 15 minutes.' },
-      { num: '2', title: 'Before a co-lead call — open Roadmap or Success', desc: 'Before alignment conversations with Mili, James, or David: pull up Roadmap to review the phase we\'re in and what the milestones are. Or pull up Success to review the inflection hypotheses and evidence benchmarks — useful when discussing whether something is "on track."' },
-      { num: '3', title: 'When explaining FA2 to a new person — Overview + How We Work', desc: 'For onboarding a new partner, advisor, or team member: start on Overview (what are we building), then How We Work (what do we actually do). These two sections are designed to be comprehensible without prior FA2 context.' },
-      { num: '4', title: 'When a workstream feels stuck — Field Diagnosis', desc: 'If Fellowship recruiting is slow, or a sovereign partnership isn\'t converting, or a grants round isn\'t attracting the right applicants — open Field Diagnosis. The 7 constraints and their institutional lens callouts are a diagnostic framework, not just a list of problems.' },
-      { num: '5', title: 'Bookmark it, share it as a file', desc: 'This dashboard runs directly in your browser from a file — no server, no login, no expiry. Share it by sending the folder (or zipping it). The URL in your address bar updates as you navigate, so you can bookmark any section directly (e.g., file:///...#roadmap).' }
+      { num: '1', title: 'First read — Overview → Diagnosis → How We Work → Success', desc: 'Follow the tab order: Overview (what we\'re building) → Field Diagnosis (why it\'s hard) → How We Work (how we respond) → Success (what winning looks like). This arc takes under 20 minutes and gives the complete strategic picture.' },
+      { num: '2', title: 'Before a co-lead call — open Roadmap or Success', desc: 'Before alignment conversations with Mili, James, or David: pull up Roadmap to review the phase we\'re in and what the milestones are. Or pull up Success to review inflection hypotheses and Evidence Engine benchmarks — use the measurement architecture callout to anchor the conversation.' },
+      { num: '3', title: 'When explaining FA2 to a new person — Overview + How We Work', desc: 'For onboarding a new partner, advisor, or team member: start on Overview (what are we building), then How We Work (what do we actually do and how it connects to strategy). These two sections are designed to be comprehensible without prior FA2 context.' },
+      { num: '4', title: 'When a workstream feels stuck — Field Diagnosis', desc: 'If Fellowship recruiting is slow, or a sovereign partnership isn\'t converting, or a grants round isn\'t attracting the right applicants — open Field Diagnosis. Each constraint card now shows which FA2 missions and programs are directly targeting it.' },
+      { num: '5', title: 'When you need evidence for a funder or partner — Success + Reference Models', desc: 'Success has the inflection hypotheses, future state conditions, and Evidence Engine targets. Reference Models has the institutional precedents and real-world deployment evidence. Together they answer: "Has anyone done this before, and how will we know when we\'re winning?"' }
     ];
     howSteps.forEach(function(s) {
       html += '<div class="guide-how-step">';
@@ -375,13 +377,43 @@ var Views = (function () {
     html += '<div class="section-eyebrow">Quarterly Accountability</div>';
     html += '<h2 class="section-title">Evidence Engine</h2>';
     html += '<p class="section-desc">What the quarterly "Undeniable Traction" reports need to show. These are the benchmarks against which FA2 holds itself accountable — not aspirations, but measurable thresholds.</p>';
+
+    html += '<div class="measurement-arch">';
+    html += '<div class="measurement-arch-title">How measurement works across the dashboard</div>';
+    html += '<div class="measurement-arch-levels">';
+    html += '<div class="measurement-level"><span class="measurement-level-label">Activity benchmarks</span><span class="measurement-level-desc">Is each program performing? (How We Work tab)</span></div>';
+    html += '<div class="measurement-level-arrow">→</div>';
+    html += '<div class="measurement-level"><span class="measurement-level-label">Evidence Engine metrics</span><span class="measurement-level-desc">Are we gaining quarterly traction? (this section)</span></div>';
+    html += '<div class="measurement-level-arrow">→</div>';
+    html += '<div class="measurement-level"><span class="measurement-level-label">Observable signals</span><span class="measurement-level-desc">Are the big bets materializing? (Inflection Hypotheses above)</span></div>';
+    html += '</div>';
+    html += '</div>';
+
+    var metricDrivers = {
+      'Real Users on Open Infrastructure':  ['Grants & Prizes'],
+      'Sovereign Partner Depth':            ['Advisory & Partnerships', 'September UN Event', 'Fellowship'],
+      'Field Map Coverage':                 ['Co-funded Initiatives', 'Advisory & Partnerships'],
+      'Capital Leverage Ratio':             ['Grants & Prizes', 'Advisory & Partnerships'],
+      'Fellowship Placement Quality':       ['Fellowship Program'],
+      'Convening Decision Density':         ['Convenings & Dinners', 'September UN Event'],
+      'Reference Stack Adoption':           ['Grants & Prizes', 'Co-funded Initiatives'],
+      'AI4PG Benchmark':                    ['Co-funded Initiatives']
+    };
+
     html += '<div class="evidence-grid">';
     d.evidenceEngine.forEach(function(e, i) {
+      var drivers = metricDrivers[e.metric] || [];
       html += '<div class="evidence-item">';
       html += '<div class="evidence-num">' + (i+1) + '</div>';
-      html += '<div>';
+      html += '<div style="flex:1;">';
       html += '<div class="evidence-metric">' + e.metric + '</div>';
       html += '<div class="evidence-target">' + e.target + '</div>';
+      if (drivers.length) {
+        html += '<div style="margin-top:8px;display:flex;flex-wrap:wrap;gap:5px;">';
+        html += '<span style="font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--gray-400);align-self:center;margin-right:2px;">Driven by</span>';
+        drivers.forEach(function(drv) { html += '<span class="tag tag-gray" style="font-size:11px;">' + drv + '</span>'; });
+        html += '</div>';
+      }
       html += '</div>';
       html += '</div>';
     });
@@ -407,15 +439,32 @@ var Views = (function () {
     html += '<div class="section-eyebrow">Activity Streams</div>';
     html += '<h2 class="section-title">6 Programs &amp; Workstreams</h2>';
     html += '<p class="section-desc">Each workstream has a defined purpose, a clear definition of "good," and a status. These are not activities in isolation — they are coordinated moves toward the same strategic end.</p>';
+    var activityMetrics = {
+      'fellowship':  ['Fellowship Placement Quality', 'Sovereign Partner Depth'],
+      'convenings':  ['Convening Decision Density'],
+      'grants':      ['Real Users on Open Infrastructure', 'Capital Leverage Ratio', 'Reference Stack Adoption'],
+      'advisory':    ['Sovereign Partner Depth', 'Capital Leverage Ratio', 'Field Map Coverage'],
+      'cofunded':    ['AI4PG Benchmark', 'Reference Stack Adoption', 'Field Map Coverage'],
+      'un-event':    ['Convening Decision Density', 'Sovereign Partner Depth']
+    };
+
     html += '<div class="grid-2">';
     d.activities.forEach(function(act) {
+      var metrics = activityMetrics[act.id] || [];
       html += '<div class="activity-card">';
       html += '<div class="activity-header">';
       html += '<div class="activity-name">' + act.emoji + ' ' + act.name + '</div>';
       html += statusTag(act.status, act.statusColor);
       html += '</div>';
       html += '<div class="activity-desc">' + act.description + '</div>';
-      html += '<div class="activity-good"><strong>What "good" looks like:</strong> ' + act.goodLooks + '</div>';
+      if (metrics.length) {
+        html += '<div class="constraint-response">';
+        html += '<div class="constraint-response-label">Tracked via Evidence Engine</div>';
+        html += '<div class="constraint-response-tags">';
+        metrics.forEach(function(m) { html += '<span class="tag tag-blue">' + m + '</span>'; });
+        html += '</div>';
+        html += '</div>';
+      }
       html += '</div>';
     });
     html += '</div>';

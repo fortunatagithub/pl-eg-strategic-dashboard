@@ -1522,6 +1522,54 @@ a:hover { color: var(--blue-700); }
   flex-shrink: 0;
 }
 
+/* ── Measurement Architecture callout (Success tab) ─────────── */
+.measurement-arch {
+  background: var(--blue-50);
+  border: 1px solid var(--blue-100);
+  border-left: 3px solid var(--blue-600);
+  border-radius: var(--radius);
+  padding: 16px 20px;
+  margin-bottom: 28px;
+}
+.measurement-arch-title {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--blue-600);
+  margin-bottom: 12px;
+}
+.measurement-arch-levels {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.measurement-level {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  background: var(--white);
+  border: 1px solid var(--blue-100);
+  border-radius: var(--radius-sm);
+  padding: 8px 12px;
+}
+.measurement-level-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--blue-800);
+}
+.measurement-level-desc {
+  font-size: 11.5px;
+  color: var(--blue-600);
+  opacity: 0.8;
+}
+.measurement-level-arrow {
+  font-size: 16px;
+  color: var(--blue-400);
+  font-weight: 700;
+}
+
 /* ── Executive Synthesis (Reference Models tab) ─────────────── */
 .synth-section {
   background: linear-gradient(135deg, rgba(37,99,235,0.03) 0%, rgba(124,58,237,0.03) 100%);
