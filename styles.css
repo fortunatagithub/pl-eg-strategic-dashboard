@@ -1521,3 +1521,162 @@ a:hover { color: var(--blue-700); }
   font-size: 10px;
   flex-shrink: 0;
 }
+
+/* ── Executive Synthesis (Reference Models tab) ─────────────── */
+.synth-section {
+  background: linear-gradient(135deg, rgba(37,99,235,0.03) 0%, rgba(124,58,237,0.03) 100%);
+}
+.synth-block {
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.synth-block-title {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--blue-600);
+  margin-bottom: 4px;
+}
+.synth-block-body {
+  font-size: 13.5px;
+  color: var(--gray-700);
+  line-height: 1.65;
+}
+.synth-map {
+  margin-top: 32px;
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.synth-map-title {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gray-500);
+  padding: 14px 24px;
+  background: var(--gray-50);
+  border-bottom: 1px solid var(--gray-200);
+}
+.synth-map-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0;
+}
+.synth-map-item {
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--gray-100);
+  border-right: 1px solid var(--gray-100);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.synth-map-item:nth-child(even) { border-right: none; }
+.synth-map-item:nth-child(3), .synth-map-item:nth-child(4) { border-bottom: none; }
+.synth-map-space {
+  font-size: 14px;
+  font-weight: 700;
+  padding-left: 12px;
+  color: var(--gray-900);
+}
+.synth-map-space-blue  { border-left: 3px solid var(--blue-600); }
+.synth-map-space-purple { border-left: 3px solid var(--purple-700); }
+.synth-map-space-green { border-left: 3px solid var(--green-700); }
+.synth-map-space-amber { border-left: 3px solid var(--amber-700); }
+.synth-map-refs {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.synth-map-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+}
+.synth-map-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gray-400);
+  min-width: 80px;
+}
+.synth-map-insight {
+  font-size: 12.5px;
+  color: var(--gray-600);
+  line-height: 1.6;
+  border-top: 1px solid var(--gray-100);
+  padding-top: 10px;
+  font-style: italic;
+}
+
+/* ── Inflection Map (How We Work tab) ───────────────────────── */
+.inflection-map {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--white);
+}
+.inflection-map-row {
+  display: grid;
+  grid-template-columns: 200px 1fr 1fr;
+  gap: 16px;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--gray-100);
+  align-items: start;
+}
+.inflection-map-row:last-child { border-bottom: none; }
+.inflection-map-row:hover { background: var(--gray-50); }
+.inflection-map-activity {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--gray-900);
+}
+.inflection-map-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.inflection-map-why {
+  font-size: 12.5px;
+  color: var(--gray-600);
+  line-height: 1.55;
+}
+
+/* ── Constraint Response (Field Diagnosis tab) ───────────────── */
+.constraint-response {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--gray-200);
+}
+.constraint-response-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gray-400);
+  margin-bottom: 8px;
+}
+.constraint-response-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+@media (max-width: 768px) {
+  .inflection-map-row { grid-template-columns: 1fr; }
+  .synth-map-grid { grid-template-columns: 1fr; }
+  .synth-map-item:nth-child(even) { border-right: none; }
+  .synth-map-item:nth-child(3) { border-bottom: 1px solid var(--gray-100); }
+}

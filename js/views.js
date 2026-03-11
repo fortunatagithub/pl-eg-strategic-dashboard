@@ -422,6 +422,34 @@ var Views = (function () {
     html += '</div>';
     html += '</div>';
 
+    // ── Inflection Connection Map ────────────────────────────────────────────
+    html += '<div class="section">';
+    html += '<div class="section-eyebrow">Strategic Connection</div>';
+    html += '<h2 class="section-title">How Activities Build Toward Inflection</h2>';
+    html += '<p class="section-desc">Each activity stream has an explicit job in the strategic arc — directly contributing to one or more of the four inflection hypotheses. This map closes the gap between "what we do" and "what we\'re building toward."</p>';
+
+    var actInflectionMap = [
+      { activity: '🎓 Fellowship', inflections: ['Multilateral Canonization', 'Treasury Embed', 'Crypto Governance as Necessity'], why: 'Fellows placed in sovereign and multilateral roles create the insider relationships that make each inflection politically viable — particularly the canonical endorsements and treasury embeds that require ministerial champions.' },
+      { activity: '🤝 Convenings & Dinners', inflections: ['Multilateral Canonization', 'Treasury Embed'], why: 'Decision rooms with ministers and multilateral leads are where pilot commitments and canonical endorsements get initiated. The September UN Event is the highest-leverage instance of this.' },
+      { activity: '💰 Grants & Prizes', inflections: ['Treasury Embed', 'DePIN Climate at Scale', 'Crypto Governance as Necessity'], why: 'The 4-stage capital stack de-risks the path from experiment to sovereign deployment — the mechanism that makes each inflection operationally achievable, not just strategically desirable.' },
+      { activity: '🔗 Advisory & Partnerships', inflections: ['Multilateral Canonization', 'Treasury Embed'], why: 'Structured quarterly engagement with sovereigns and multilaterals surfaces the alignment conditions needed for canonical endorsements and operational treasury embedding to succeed.' },
+      { activity: '🌐 Co-funded Initiatives', inflections: ['DePIN Climate at Scale', 'Crypto Governance as Necessity'], why: 'Partnerships with Ma Earth (DePIN MRV), Octant (mechanism design), and the AI4PG coalition build the technical credibility and ecosystem density both inflections require.' },
+      { activity: '🇺🇳 September UN Event', inflections: ['Multilateral Canonization', 'Treasury Embed'], why: 'UNGA week is the highest-density moment for sovereign decision-makers globally. The FA2 convening is designed as the room where a Tier 2 partner relationship or multilateral declaration begins.' }
+    ];
+
+    html += '<div class="inflection-map">';
+    actInflectionMap.forEach(function(row) {
+      html += '<div class="inflection-map-row">';
+      html += '<div class="inflection-map-activity">' + row.activity + '</div>';
+      html += '<div class="inflection-map-tags">';
+      row.inflections.forEach(function(inf) { html += '<span class="tag tag-blue">' + inf + '</span>'; });
+      html += '</div>';
+      html += '<div class="inflection-map-why">' + row.why + '</div>';
+      html += '</div>';
+    });
+    html += '</div>'; // inflection-map
+    html += '</div>'; // section
+
     // Capital Stack detail
     html += '<div class="section section-alt">';
     html += '<div class="section-eyebrow">Grants Architecture</div>';
@@ -487,8 +515,19 @@ var Views = (function () {
     html += '</div>';
 
     // Constraint cards
+    var constraintResponses = {
+      'pilot-production':      { missions: ['Sovereign DPI Reference Stack', 'Stage 3 Pilot Funding'],            activities: ['Grants & Prizes', 'Advisory & Partnerships'] },
+      'trust-deficit':         { missions: ['RAND-style neutral artifacts', 'Chatham House Convenings'],          activities: ['Fellowship', 'Convenings & Dinners'] },
+      'mechanism-scalability': { missions: ['Privacy-Preserving Eligibility', 'AI4PG Research Coalition'],        activities: ['Grants & Prizes', 'Co-funded Initiatives'] },
+      'regulatory-moats':      { missions: ['Procurement Verifiability', 'Alliance Architecture Lever'],          activities: ['Advisory & Partnerships', 'Convenings & Dinners'] },
+      'political-risk':        { missions: ['Sovereign DPI Reference Stack', 'Multilateral Canonization Arc'],    activities: ['Fellowship', 'September UN Event'] },
+      'talent-fragmentation':  { missions: ['Capital Stack for Open Infrastructure', 'AI4PG Research Coalition'], activities: ['Fellowship', 'Co-funded Initiatives'] },
+      'compliance-ambiguity':  { missions: ['Multilateral Canonization Inflection', 'Regulatory Mapping Artifact'], activities: ['Advisory & Partnerships', 'Grants (jurisdictional targeting)'] }
+    };
+
     html += '<div class="grid-2">';
     d.constraints.forEach(function(c) {
+      var resp = constraintResponses[c.id] || { missions: [], activities: [] };
       html += '<div class="constraint-card">';
       html += '<div class="constraint-header">';
       html += '<div class="constraint-name">' + c.emoji + ' ' + c.name + '</div>';
@@ -503,6 +542,15 @@ var Views = (function () {
       html += '<div class="constraint-resolution-label">What resolves it</div>';
       html += '<div class="constraint-resolution" style="margin-bottom:12px;">' + c.resolution + '</div>';
       html += lensCallout('💡', c.institutionalLens);
+      if (resp.missions.length) {
+        html += '<div class="constraint-response">';
+        html += '<div class="constraint-response-label">FA2 Missions &amp; Programs targeting this</div>';
+        html += '<div class="constraint-response-tags">';
+        resp.missions.forEach(function(m) { html += '<span class="tag tag-blue">' + m + '</span>'; });
+        resp.activities.forEach(function(a) { html += '<span class="tag tag-gray">' + a + '</span>'; });
+        html += '</div>';
+        html += '</div>';
+      }
       html += '</div>';
     });
     html += '</div>';
@@ -521,6 +569,75 @@ var Views = (function () {
     html += '<h1 class="hero-title">Reference Models</h1>';
     html += '<p class="hero-subtitle">Eight organizations that built fields analogous to what FA2 is attempting — each studied for what it got structurally right. Below: what each built, how they built it, and the specific move FA2 can make from their precedent.</p>';
     html += '</div>';
+
+    // ── Executive Synthesis ──────────────────────────────────────────────────
+    html += '<div class="section synth-section">';
+    html += '<div class="section-eyebrow">Executive Synthesis</div>';
+    html += '<h2 class="section-title">How These References Apply to FA2</h2>';
+    html += '<p class="section-desc">The 8 institutions and 10 real-world deployments collectively answer three questions that define FA2\'s strategic posture: what kind of organization to be, what success at sovereign scale actually looks like, and the principles that apply across all four opportunity spaces.</p>';
+
+    html += '<div class="grid-3">';
+    html += '<div class="synth-block">';
+    html += '<div class="synth-block-title">What Kind of Organization</div>';
+    html += '<div class="synth-block-body">The institutions collectively define a singular archetype: the <strong>trusted neutral builder</strong>. Not an advocacy organization (RAND\'s lesson), not a vendor (MITRE\'s lesson), not a foundation deploying grants alone (Rockefeller\'s lesson on what field-building actually requires beyond capital). FA2 earns its position by being what no one else can be: technically credible in crypto-native architecture, institutionally trusted by sovereigns, and structurally conflict-free. BIS and MITRE prove this is possible; IAS and SFI prove it requires protecting the work from short-term pressure.</div>';
+    html += '</div>';
+    html += '<div class="synth-block">';
+    html += '<div class="synth-block-title">What Sovereign Scale Looks Like</div>';
+    html += '<div class="synth-block-body">The 10 deployments remove all theoretical uncertainty. India Stack (1.4B people), Estonia X-Road (full government data interoperability), Brazil Pix (150M users), and GovStack (replicated across 8 countries) prove open-standard DPI achieves national scale. Gitcoin and Optimism RPGF prove crypto-native PGF mechanisms can allocate real capital at meaningful volume. The question is not <em>whether</em> — it is which architecture, which governance model, and which sequencing. FA2\'s job is to produce that answer.</div>';
+    html += '</div>';
+    html += '<div class="synth-block">';
+    html += '<div class="synth-block-title">Three Cross-Cutting Principles</div>';
+    html += '<div class="synth-block-body"><strong>1. Build the prototype first, publish the analysis second</strong> — BISIH and India Stack both produced architecture that became a global reference before any formal standard was adopted. <strong>2. Neutrality is the product</strong> — MITRE and RAND\'s influence derives from the impossibility of accusing them of commercial interest; FA2 must build this structurally. <strong>3. The artifact outlives the funding</strong> — Long Now, OSI, and GovStack all created reference objects that sustained field momentum independently of any single funder.</div>';
+    html += '</div>';
+    html += '</div>'; // grid-3
+
+    var spaceMappings = [
+      {
+        space: 'Sovereign DPI', color: 'blue',
+        institutions: ['BIS Innovation Hub', 'MITRE', 'RAND'],
+        deployments: ['India Stack', 'Estonia X-Road', 'GovStack', 'MOSIP', 'OpenG2P'],
+        insight: 'The sovereign DPI stack already exists in fragments. FA2\'s job is to produce the open reference architecture that assembles them — the "mBridge for government services." BIS proves this works; India Stack and Estonia prove it scales to 1B+ users.'
+      },
+      {
+        space: 'AI & Crypto PGF', color: 'purple',
+        institutions: ['Rockefeller Foundation', 'Santa Fe Institute', 'IAS'],
+        deployments: ['Gitcoin', 'Optimism RPGF', 'Brazil Pix'],
+        insight: 'PGF mechanism design is a cross-disciplinary research problem first, a grant program second. SFI\'s workshop model + Rockefeller\'s challenge grant structure + Gitcoin/Optimism\'s live evidence = the design brief for FA2\'s AI4PG research coalition.'
+      },
+      {
+        space: 'Crypto-Native Governance', color: 'green',
+        institutions: ['HELENA', 'RAND', 'Long Now Foundation'],
+        deployments: ['Optimism RPGF', 'Gitcoin', 'Estonia X-Road'],
+        insight: 'Governance legitimacy is built in rooms before it is codified in rules. HELENA\'s curated convening + RAND\'s neutral multi-option analysis + Long Now\'s artifact-anchoring = the strategy for moving crypto governance from experiment to institutional norm.'
+      },
+      {
+        space: 'DePIN Climate Infrastructure', color: 'amber',
+        institutions: ['Long Now Foundation', 'Santa Fe Institute', 'Rockefeller Foundation'],
+        deployments: ['Helium', 'DIMO', 'Brazil Pix'],
+        insight: 'DePIN at climate scale requires the Long Now move: a civilizational-horizon artifact that anchors the case across 4-year political cycles. Helium and DIMO prove the infrastructure model; Rockefeller\'s challenge grant playbook is the funding architecture.'
+      }
+    ];
+
+    html += '<div class="synth-map">';
+    html += '<div class="synth-map-title">Reference Map by Opportunity Space</div>';
+    html += '<div class="synth-map-grid">';
+    spaceMappings.forEach(function(m) {
+      html += '<div class="synth-map-item">';
+      html += '<div class="synth-map-space synth-map-space-' + m.color + '">' + m.space + '</div>';
+      html += '<div class="synth-map-refs">';
+      html += '<div class="synth-map-group"><span class="synth-map-label">Institutions</span>';
+      m.institutions.forEach(function(inst) { html += '<span class="tag tag-' + m.color + '">' + inst + '</span>'; });
+      html += '</div>';
+      html += '<div class="synth-map-group"><span class="synth-map-label">Deployments</span>';
+      m.deployments.forEach(function(dep) { html += '<span class="tag tag-gray">' + dep + '</span>'; });
+      html += '</div>';
+      html += '</div>';
+      html += '<div class="synth-map-insight">' + m.insight + '</div>';
+      html += '</div>';
+    });
+    html += '</div>'; // synth-map-grid
+    html += '</div>'; // synth-map
+    html += '</div>'; // section
 
     // Institution cards
     html += '<div class="section">';
