@@ -416,7 +416,6 @@ var Views = (function () {
       html += '</div>';
       html += '<div class="activity-desc">' + act.description + '</div>';
       html += '<div class="activity-good"><strong>What "good" looks like:</strong> ' + act.goodLooks + '</div>';
-      html += lensCallout('💡', act.institutionalLens);
       html += '</div>';
     });
     html += '</div>';
